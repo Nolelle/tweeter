@@ -1,16 +1,14 @@
+const MAX_TWEET_LENGTH = 140;
 $(document).ready(function () {
   // --- our code goes here ---
   $("#tweet-text").on("input", function (e) {
-    const maxLength = 140;
+    const maxLength = MAX_TWEET_LENGTH;
     const txtLength = $(this).val().length;
-    const counterValue = maxLength - txtLength;
-    const negativeCounterValue = txtLength - maxLength;
-    const counter = $(".button").find(".counter");
-    if (txtLength maxLength) {
-      counter.html(`${negativeCounterValue}`);
-      counter.css("color", "red");
+    const lettersLeft = maxLength - txtLength;
+    const counter = $(this).parent().find(".counter");
+    counter.html(`${lettersLeft}`);
+    if (lettersLeft < 0) {
+      counter.addClass("red");
     }
-
-    counter.html(`${counterValue}`);
   });
 });

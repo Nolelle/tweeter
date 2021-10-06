@@ -27,9 +27,14 @@
   color: white;
 }
 
-.new-tweet output {
+.counter {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   font-family: "Bungee", cursive, sans-serif;
+  color: black;
+}
+
+.red {
+  color: red;
 }
