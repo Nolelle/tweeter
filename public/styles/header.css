@@ -1,0 +1,15 @@
+.header-ele {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+  background-image: url("../images/foggy-birds.png");
+}
+
+.header-profile-img {
+}
+.header-name {
+}
