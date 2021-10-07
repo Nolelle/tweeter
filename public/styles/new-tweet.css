@@ -38,3 +38,11 @@
 .red {
   color: red;
 }
+
+#error {
+  border: 5px solid red;
+  margin: 3em;
+  padding: 1.5em;
+  width: 50%;
+  padding-top: 121px;
+}

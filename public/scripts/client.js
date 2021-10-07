@@ -6,6 +6,11 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 // Fake data taken from initial-tweets.json
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const renderTweets = function (tweets) {
   // loops through tweets
@@ -33,7 +38,7 @@ const createTweetElement = function (tweet) {
     </header>
 
     <div class="main">
-      <p>${contents.text}</p>
+      <p>${escape(contents.text)}</p>
       <hr>
     </div>
 
@@ -49,21 +54,28 @@ const createTweetElement = function (tweet) {
 
   return $tweetHTML;
 };
+$("#error").hide();
 
 $("form").on("submit", function (event) {
   event.preventDefault();
   const text = $(this).serialize();
+  console.log(text);
   if (text.length > 140) {
-    return alert("You are over the character limit!!");
+    $("#error").slideDown();
+    return;
   }
-
+  $("#error").slideUp();
   $.ajax({
     method: "POST",
     url: "/tweets",
     data: text,
-  }).done((data) => {
-    loadTweets(data);
-  });
+  })
+    .done((data) => {
+      loadTweets(data);
+    })
+    .fail(() => {
+      $("#error").slideDown();
+    });
 });
 
 const loadTweets = function () {
@@ -71,10 +83,10 @@ const loadTweets = function () {
     url: "/tweets",
     method: "GET",
   })
-    .then((url) => {
+    .done((url) => {
       renderTweets(url);
     })
-    .catch((error) => {
+    .fail((error) => {
       console.log("error:", error);
     });
 };
