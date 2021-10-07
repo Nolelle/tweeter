@@ -21,6 +21,8 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
+  min-height: 2000px;
+  padding-top: 121px; /*120px nabar height*/
 }
 
 /*

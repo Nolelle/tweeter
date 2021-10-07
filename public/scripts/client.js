@@ -5,22 +5,23 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = {
-  user: {
-    name: "Descartes",
-    avatars: "https://i.imgur.com/nlhLi3I.png",
-    handle: "@rd",
-  },
-  content: {
-    text: "Je pense , donc je suis",
-  },
-  created_at: 1633469791318,
+// Fake data taken from initial-tweets.json
+
+const renderTweets = function (tweets) {
+  // loops through tweets
+  for (const tweet of tweets) {
+    // calls createTweetElement for each tweet
+    const $tweet = createTweetElement(tweet);
+    // takes return value and appends it to the tweets container
+    $("#tweets-container").prepend($tweet);
+  }
 };
 
 const createTweetElement = function (tweet) {
   const user = tweet.user;
   const contents = tweet.content;
   const createdAt = tweet.created_at;
+  const timeCreated = timeago.format(createdAt);
 
   const $tweetHTML = $(`<article class="tweet"> 
   <header>
@@ -37,7 +38,7 @@ const createTweetElement = function (tweet) {
     </div>
 
     <footer>
-      <div>${createdAt}</div>
+      <div>${timeCreated}</div>
       <div>
         <div class="fas fa-flag icon"></div>
         <div class="fas fa-retweet icon"></div>
@@ -49,8 +50,33 @@ const createTweetElement = function (tweet) {
   return $tweetHTML;
 };
 
-const $tweet = createTweetElement(tweetData);
+$("form").on("submit", function (event) {
+  event.preventDefault();
+  const text = $(this).serialize();
+  if (text.length > 140) {
+    return alert("You are over the character limit!!");
+  }
 
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  $.ajax({
+    method: "POST",
+    url: "/tweets",
+    data: text,
+  }).done((data) => {
+    loadTweets(data);
+  });
+});
+
+const loadTweets = function () {
+  $.ajax({
+    url: "/tweets",
+    method: "GET",
+  })
+    .then((url) => {
+      renderTweets(url);
+    })
+    .catch((error) => {
+      console.log("error:", error);
+    });
+};
+
+loadTweets();
