@@ -4,6 +4,7 @@ article {
   padding: 1em;
   width: 100%;
 }
+
 article header {
   display: flex;
   flex-direction: row;
@@ -11,10 +12,12 @@ article header {
   align-items: center;
   width: 100%;
 }
+
 article main {
   padding: 0;
   width: 100%;
 }
+
 article hr {
   border: 1.5px solid black;
   background-color: black;

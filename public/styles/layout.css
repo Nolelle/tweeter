@@ -54,7 +54,7 @@ body {
   padding: 2rem;
 }
 
-/* mobile */
+/* rules for screen sizes 800px and below */
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
