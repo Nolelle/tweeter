@@ -4,8 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-// Fake data taken from initial-tweets.json
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -63,6 +61,8 @@ const createError = function (msg) {
 
   return $errorMsg;
 };
+
+//hide error (default behavior)
 $("#error").hide();
 
 $("form").on("submit", function (event) {
