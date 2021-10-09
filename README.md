@@ -6,8 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["Screenshot of Desktop View](https://github.com/Nolelle/tweeter/blob/main/docs/tweeter-desktop.png)
-!['Screenshot of Mobile View](https://github.com/Nolelle/tweeter/blob/main/docs/tweeter-mobile.png)
+!["Screenshot of Desktop View](https://github.com/Nolelle/tweeter/blob/main/docs/tweeter.png)
+!['Screenshot of Tweet form and Tweet](https://github.com/Nolelle/tweeter/blob/main/docs/tweet%20and%20form.png)
 
 ## Getting Started
 
