@@ -68,13 +68,13 @@ $("#error").hide();
 $("form").on("submit", function (event) {
   event.preventDefault();
   const text = $(this).serialize();
-  console.log(text);
   if (text.length > 140) {
     $("#error").html(createError("Please keep within character limit"));
     $("#error").slideDown();
     return;
   }
   $("#error").slideUp();
+
   $.ajax({
     method: "POST",
     url: "/tweets",
@@ -96,6 +96,8 @@ const loadTweets = function () {
   })
     .done((url) => {
       renderTweets(url);
+      $("#tweet-text").val("");
+      $(".counter").html("140");
     })
     .fail((error) => {
       console.log("error:", error);
