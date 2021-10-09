@@ -21,19 +21,54 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  min-height: 2000px;
-  padding-top: 121px; /*120px nabar height*/
+  word-wrap: break-word;
+  /* min-height: 2000px;
+  padding-top: 120px; */
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-main {
-  margin: 1.5em;
+
+.container {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  width: 90%;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1.2em;
+  width: 35%;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
   background-color: #f4f1ec;
+  margin-top: 10%;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-column {
+    width: 100%;
+  }
+
+  .right-column {
+    width: 100%;
+  }
 }

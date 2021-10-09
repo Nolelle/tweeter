@@ -1,15 +1,17 @@
-.header-ele {
+.main-header {
   display: flex;
   height: 400px;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: blanchedalmond;
+  background-color: #6f8df0;
   background-image: url("../images/foggy-birds.png");
+  padding: 3.5em;
 }
 
-.header-profile-img {
-}
-.header-name {
+@media (max-width: 800px) {
+  .page-header {
+    position: static;
+    width: 100%;
+  }
 }

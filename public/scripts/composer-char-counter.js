@@ -9,6 +9,8 @@ $(document).ready(function () {
     counter.html(`${lettersLeft}`);
     if (lettersLeft < 0) {
       counter.addClass("red");
+    } else {
+      counter.removeClass("red");
     }
   });
 });

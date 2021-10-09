@@ -1,7 +1,7 @@
 article {
   border: 5px solid black;
-  margin: 3em;
-  padding: 1.5em;
+  margin: 1em;
+  padding: 1em;
   width: 100%;
 }
 article header {
@@ -9,6 +9,7 @@ article header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 article .main {
   padding: 0;
@@ -26,6 +27,7 @@ article footer {
   justify-content: space-between;
   align-items: center;
   font-size: 1em;
+  width: 100%;
 }
 
 article .user {
@@ -59,5 +61,5 @@ article:hover .username {
 }
 
 article:hover .icon {
-  color: #41589f;
+  color: purple;
 }

@@ -54,6 +54,17 @@ const createTweetElement = function (tweet) {
 
   return $tweetHTML;
 };
+
+const createError = function (msg) {
+  const $errorMsg = $(
+    `<span><i class="fas fa-exclamation-triangle"></i></span>
+    <span>${msg}</span>
+    <i class="fas fa-exclamation-triangle"></i></span>
+    `
+  );
+
+  return $errorMsg;
+};
 $("#error").hide();
 
 $("form").on("submit", function (event) {
@@ -61,6 +72,7 @@ $("form").on("submit", function (event) {
   const text = $(this).serialize();
   console.log(text);
   if (text.length > 140) {
+    $("#error").html(createError("Its not an essay.. keep it short and sweet"));
     $("#error").slideDown();
     return;
   }
@@ -74,6 +86,7 @@ $("form").on("submit", function (event) {
       loadTweets(data);
     })
     .fail(() => {
+      $("#error").html(createError("Dude type something"));
       $("#error").slideDown();
     });
 });
