@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 800px) {
-  .page-header {
+  .main-header {
     position: static;
     width: 100%;
   }

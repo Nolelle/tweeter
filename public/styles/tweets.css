@@ -11,7 +11,7 @@ article header {
   align-items: center;
   width: 100%;
 }
-article .main {
+article main {
   padding: 0;
   width: 100%;
 }
@@ -43,7 +43,7 @@ article .user img {
 }
 
 article .username {
-  color: transparent;
+  color: gray;
 }
 
 article .icon {
@@ -56,10 +56,6 @@ article:hover {
   font-weight: 800;
 }
 
-article:hover .username {
-  color: #ccd6dd;
-}
-
-article:hover .icon {
-  color: purple;
+.icon:hover {
+  color: red;
 }

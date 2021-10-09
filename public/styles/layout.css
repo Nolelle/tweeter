@@ -21,9 +21,6 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  word-wrap: break-word;
-  /* min-height: 2000px;
-  padding-top: 120px; */
 }
 
 /*
@@ -34,7 +31,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 100%;
   padding: 2rem;
 }
@@ -42,20 +38,20 @@ body {
 .left-column {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: first baseline;
   align-items: center;
-  margin: 1.2em;
+  margin-top: 4%;
   width: 35%;
 }
 
 .right-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   width: 65%;
   background-color: #f4f1ec;
-  margin-top: 10%;
+  padding: 2rem;
 }
 
 /* mobile */

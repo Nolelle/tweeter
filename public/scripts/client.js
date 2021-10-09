@@ -13,11 +13,9 @@ const escape = function (str) {
 };
 
 const renderTweets = function (tweets) {
-  // loops through tweets
+  $("#tweets-container").empty();
   for (const tweet of tweets) {
-    // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
-    // takes return value and appends it to the tweets container
     $("#tweets-container").prepend($tweet);
   }
 };
@@ -37,11 +35,11 @@ const createTweetElement = function (tweet) {
       <div class= "username">${user.handle}</div>
     </header>
 
-    <div class="main">
-      <p>${escape(contents.text)}</p>
+    <main>
+     <p>${escape(contents.text)}</p>
       <hr>
-    </div>
-
+    </main>
+     
     <footer>
       <div>${timeCreated}</div>
       <div>
@@ -72,7 +70,7 @@ $("form").on("submit", function (event) {
   const text = $(this).serialize();
   console.log(text);
   if (text.length > 140) {
-    $("#error").html(createError("Its not an essay.. keep it short and sweet"));
+    $("#error").html(createError("Please keep within character limit"));
     $("#error").slideDown();
     return;
   }
@@ -86,7 +84,7 @@ $("form").on("submit", function (event) {
       loadTweets(data);
     })
     .fail(() => {
-      $("#error").html(createError("Dude type something"));
+      $("#error").html(createError("Please enter something before tweeting."));
       $("#error").slideDown();
     });
 });
